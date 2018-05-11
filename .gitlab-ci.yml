@@ -5,9 +5,6 @@ variables:
   IMAGE_HUGO: registry.splentity.com/openblox/ci-build-environment/ob-hugo:latest
 
 build:
-  image: docker:stable
-  services:
-    - docker:dind
   stage: build
   script:
     - docker build --pull -t $IMAGE_HUGO ob-hugo
