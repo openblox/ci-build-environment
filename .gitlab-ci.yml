@@ -1,0 +1,14 @@
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.splentity.com
+
+variables:
+  IMAGE_HUGO: registry.splentity.com/openblox/ci-build-environment/ob-hugo:latest
+
+build:
+  image: docker:stable
+  services:
+    - docker:dind
+  stage: build
+  script:
+    - docker build --pull -t $IMAGE_HUGO ob-hugo
+    - docker push $IMAGE_HUGO
