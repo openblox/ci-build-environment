@@ -3,9 +3,12 @@ before_script:
 
 variables:
   IMAGE_HUGO: registry.splentity.com/openblox/ci-build-environment/ob-hugo:latest
+  IMAGE_OB: registry.splentity.com/openblox/ci-build-environment/ob:latest
 
 build:
   stage: build
   script:
     - docker build --pull -t $IMAGE_HUGO ob-hugo
     - docker push $IMAGE_HUGO
+    - docker build --pull -t $IMAGE_OB ob
+    - docker push $IMAGE_OB
