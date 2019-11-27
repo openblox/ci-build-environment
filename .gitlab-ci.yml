@@ -1,5 +1,5 @@
 before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.splentity.com
+  - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin registry.splentity.com
 
 variables:
   IMAGE_HUGO: registry.splentity.com/openblox/ci-build-environment/ob-hugo:latest
