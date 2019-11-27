@@ -1,5 +1,4 @@
 before_script:
-  - dnf -y update && dnf -y install docker
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.splentity.com
 
 variables:
